@@ -5,6 +5,8 @@
   <!-- Include the CesiumJS JavaScript and CSS files -->
   <script src="Build/Cesium/Cesium.js" type="application/javascript"></script>
   <link href="Build/Cesium/Widgets/widgets.css" type="text/css" rel="stylesheet">
+  <link href="Build/Cesium/CesiumSandcastle.css" type="text/css" rel="stylesheet">
+  <link href="Build/Cesium/bucket.css" type="text/css" rel="stylesheet">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <style>
       body {
@@ -44,7 +46,110 @@
         pitch : Cesium.Math.toRadians(-15.0),
       }
     });
+	
+	const pinBuilder = new Cesium.PinBuilder();
+
+    Sandcastle.addToolbarMenu(
+      [
+        {
+          text: "Track with Waypoints",
+          onselect: function () {
+            viewer.dataSources
+              .add(
+                Cesium.GpxDataSource.load(
+                  "../SampleData/gpx/lamina.gpx",
+                  {
+                    clampToGround: true,
+                  }
+                )
+              )
+              .then(function (dataSource) {
+                viewer.flyTo(dataSource.entities);
+              });
+          },
+        },
+        {
+          text: "Route",
+          onselect: function () {
+            viewer.dataSources
+              .add(
+                Cesium.GpxDataSource.load(
+                  "../SampleData/gpx/route.gpx",
+                  {
+                    clampToGround: true,
+                  }
+                )
+              )
+              .then(function (dataSource) {
+                viewer.flyTo(dataSource.entities);
+              });
+          },
+        },
+        {
+          text: "Waypoints",
+          onselect: function () {
+            viewer.dataSources
+              .add(
+                Cesium.GpxDataSource.load("../SampleData/gpx/wpt.gpx", {
+                  clampToGround: true,
+                })
+              )
+              .then(function (dataSource) {
+                viewer.flyTo(dataSource.entities);
+              });
+          },
+        },
+        {
+          text: "Multiple Tracks with Waypoints",
+          onselect: function () {
+            viewer.dataSources
+              .add(
+                Cesium.GpxDataSource.load(
+                  "../SampleData/gpx/complexTrk.gpx",
+                  { clampToGround: true }
+                )
+              )
+              .then(function (dataSource) {
+                viewer.flyTo(dataSource.entities);
+              });
+          },
+        },
+        {
+          text: "Symbology Options",
+          onselect: function () {
+            viewer.dataSources
+              .add(
+                Cesium.GpxDataSource.load(
+                  "../SampleData/gpx/lamina.gpx",
+                  {
+                    clampToGround: true,
+                    trackColor: Cesium.Color.YELLOW,
+                    waypointImage: pinBuilder.fromMakiIconId(
+                      "bicycle",
+                      Cesium.Color.BLUE,
+                      48
+                    ),
+                  }
+                )
+              )
+              .then(function (dataSource) {
+                viewer.flyTo(dataSource.entities);
+              });
+          },
+        },
+      ],
+      "toolbar"
+    );
+    
+    Sandcastle.reset = function () {
+      viewer.dataSources.removeAll();
+      viewer.clock.clockRange = Cesium.ClockRange.UNBOUNDED;
+      viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK;
+    };
   </script>
   <div></div>
+  <div id="cesiumContainer" class="fullSize"></div>
+  <div id="loadingOverlay"><h1>Loading...</h1></div>
+  <div id="toolbar"></div>
 </body>
 </html>
