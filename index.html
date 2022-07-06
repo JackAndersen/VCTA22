@@ -49,7 +49,7 @@
 	
 	const pinBuilder = new Cesium.PinBuilder();
 
-    Sandcastle.addToolbarMenu(
+    Viewer.addToolbarMenu(
       [
         {
           text: "Track with Waypoints",
@@ -147,9 +147,5 @@
       viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK;
     };
   </script>
-  <div></div>
-  <div id="cesiumContainer" class="fullSize"></div>
-  <div id="loadingOverlay"></div>
-  <div id="toolbar"></div>
 </body>
 </html>
