@@ -20,11 +20,11 @@
   .dropbtn {
   background-color: #303336;
   color: white;
-  padding: 8px;
+  padding: 5px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-  border-radius: : 8px;
+  border-radius: 3px;
   }
 
   /* Dropdown button on hover & focus */
@@ -65,15 +65,37 @@
   .show {display:block;}
   </style>
   <div id="cesiumContainer" class="fullSize"></div>
+
   <div class="dropdown">
-      <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+      <button onclick="myFunction()" class="dropbtn">Vælg et GPX spor</button>
       <div id="myDropdown" class="dropdown-content">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
         </div>
         </div>
-  <script>
+
+ <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+
     // Your access token can be found at: https://cesium.com/ion/tokens.
     // This is the default access token from your ion account
 
@@ -108,25 +130,6 @@
       viewer.flyTo(dataSource.entities);
     });
 
-    /* When the user clicks on the button,
-    toggle between hiding and showing the dropdown content */
-    function myFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
   </script>
 </body>
 </html>
