@@ -42,7 +42,20 @@
     });
 
 	const pinBuilder = new Cesium.PinBuilder();
+  viewer.dataSources
+    .add(
+      Cesium.GpxDataSource.load(
+        "Data/Garmin/activity_8743979630.gpx",
+        {
+          clampToGround: true,
+        }
+      )
+    )
+    .then(function (dataSource) {
+      viewer.flyTo(dataSource.entities);
+    });
 
+    
     viewer.addToolbarMenu(
       [
         {
