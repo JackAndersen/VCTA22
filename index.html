@@ -15,8 +15,16 @@
       display: block;
       margin: 0px;
   }
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+  position: absolute;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  }
+
   /* Dropdown Button */
-  .option {
+  .drpform {
   background-color: #303336;
   color: white;
   padding: 5px;
@@ -27,20 +35,12 @@
   }
 
   /* Dropdown button on hover & focus */
-  .option:hover, .option:focus {
+  .drpform:hover, .drpform:focus {
   background-color: #2980B9;
   }
 
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-  position: absolute;
-  display: inline-block;
-  top: 10px;
-  left: 10px;
-  }
-
   /* Dropdown Content (Hidden by Default) */
-  .select {
+  .datalist {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -50,7 +50,7 @@
   }
 
   /* Links inside the dropdown */
-  .select {
+  .datalist {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -65,9 +65,9 @@
   </style>
   <div id="cesiumContainer" class="fullSize"></div>
 
-  <div class="dropdown">
-  <form>
-  <select id="datalist">
+  <div class="dropdowns>
+  <form class="drpform">
+  <select class="datalist">
     <option value="#">Vælg en cykeldag</option>
     <option value="#">Loop cykeldage</option>
     <option value="Data/Garmin/activity_8743979630.gpx">Dag 1</option>
