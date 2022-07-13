@@ -95,6 +95,11 @@
           }
         }
 
+        function loadData(){
+         viewer.entities.removeAll();
+         plotGeoPoints();
+        }
+
     // Your access token can be found at: https://cesium.com/ion/tokens.
     // This is the default access token from your ion account
 
@@ -117,10 +122,13 @@
     });
 
 	const pinBuilder = new Cesium.PinBuilder();
+
+  var datainput = "Data/Garmin/activity_8743979630.gpx"
+
   viewer.dataSources
     .add(
       Cesium.GpxDataSource.load(
-        "Data/Garmin/activity_8743979630.gpx",
+        datainput,
         {
           clampToGround: true,
         }
