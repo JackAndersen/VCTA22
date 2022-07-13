@@ -40,7 +40,7 @@
   }
 
   /* Dropdown Content (Hidden by Default) */
-  .datalist {
+  .drplist {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -50,7 +50,7 @@
   }
 
   /* Links inside the dropdown */
-  .datalist {
+  .drplist {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -58,7 +58,7 @@
   }
 
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd}
+  .drplist:hover {background-color: #ddd}
 
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
@@ -67,7 +67,7 @@
 
   <div class="dropdowns>
   <form class="drpform">
-  <select class="datalist">
+  <select id= "datalist" class="drplist">
     <option value="#">Vælg en cykeldag</option>
     <option value="#">Loop cykeldage</option>
     <option value="Data/Garmin/activity_8743979630.gpx">Dag 1</option>
