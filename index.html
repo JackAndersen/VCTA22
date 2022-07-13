@@ -74,15 +74,10 @@
   </select>
   </form>
 
-  <button id= dropdown type="button" onclick="getgpx()">Try it</button>
-
-  <p id="demo"></p>
-
   <script>
   var formchange = document.querySelector('datalist');
   datalist.addEventListener('change', function() {
     var gpxinput = document.getElementById("datalist").value;
-    document.getElementById("demo").innerHTML = gpxinput;
     viewer.dataSources
       .add(
         Cesium.GpxDataSource.load(
@@ -94,6 +89,7 @@
       )
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
+        viewer.clock.clockRange = Cesium.ClockRange.UNBOUNDED;
       }
   )});
 
