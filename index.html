@@ -67,10 +67,10 @@
 
   <form>
   <select id="datalist">
+    <option value="#">Alle</option>
     <option value="Data/Garmin/activity_8743979630.gpx">Dag 1</option>
-    <option value="orange">Orange</option>
-    <option value="pineapple">Pineapple</option>
-    <option value="banana">Banana</option>
+    <option value="Data/Garmin/activity_8752810605.gpx">Dag 2</option>
+    <option value="Data/Garmin/activity_8807168553.gpx">Dag 3</option>
   </select>
   </form>
 
@@ -79,7 +79,8 @@
   <p id="demo"></p>
 
   <script>
-  function getgpx() {
+  var formchange = document.querySelector('datalist');
+  datalist.addEventListener('change', function() {
     var gpxinput = document.getElementById("datalist").value;
     document.getElementById("demo").innerHTML = gpxinput;
     viewer.dataSources
@@ -94,7 +95,7 @@
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
       }
-  )};
+  )});
 
     // Your access token can be found at: https://cesium.com/ion/tokens.
     // This is the default access token from your ion account
@@ -117,8 +118,6 @@
     // });
 
 	const pinBuilder = new Cesium.PinBuilder();
-
-  var gpxinput = "";
 
   </script>
 </body>
