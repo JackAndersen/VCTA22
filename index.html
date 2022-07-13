@@ -68,7 +68,7 @@
   <div class="dropdown">
       <button onclick="myFunction()" class="dropbtn">Vælg et GPX spor</button>
       <div id="myDropdown" class="dropdown-content">
-        <a>Data/Garmin/activity_8743979630.gpx</a>
+        <a href"Data/Garmin/activity_8743979630.gpx">Dag 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
         </div>
@@ -90,7 +90,7 @@
               var openDropdown = dropdowns[i];
               if (openDropdown.classList.contains('show')) {
                 openDropdown.classList.remove('show');
-                datainput = document.getElementsByClassName("dropdown-content");
+                gpxinput = dropdowns;
                 loadData();
               }
             }
@@ -125,12 +125,12 @@
 
 	const pinBuilder = new Cesium.PinBuilder();
 
-  var datainput = "Data/Garmin/activity_8743979630.gpx"
+  var gpxinput = "";
 
   viewer.dataSources
     .add(
       Cesium.GpxDataSource.load(
-        datainput,
+        gpxinput,
         {
           clampToGround: true,
         }
