@@ -82,13 +82,22 @@
   function getgpx() {
     var gpxinput = document.getElementById("datalist").value;
     document.getElementById("demo").innerHTML = gpxinput;
-    viewer.entities.removeAll();
-    plotGeoPoints();
-  }
+    viewer.dataSources
+      .add(
+        Cesium.GpxDataSource.load(
+          gpxinput,
+          {
+            clampToGround: true,
+          }
+        )
+      )
+      .then(function (dataSource) {
+        viewer.flyTo(dataSource.entities);
+      }
+  )};
 
     // Your access token can be found at: https://cesium.com/ion/tokens.
     // This is the default access token from your ion account
-
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2NmY3OWYxMC1mNTk3LTRkODUtYmU3ZC01NzlmZmVhMTBlNTIiLCJpZCI6MTAwMTA4LCJpYXQiOjE2NTcwMDcwMDV9.ZN5f_sMeDFCv-RU6fk8ZRSfPkPka3JwAlqHAJMQRryw';
 
     // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
@@ -110,19 +119,6 @@
 	const pinBuilder = new Cesium.PinBuilder();
 
   var gpxinput = "";
-
-  viewer.dataSources
-    .add(
-      Cesium.GpxDataSource.load(
-        gpxinput,
-        {
-          clampToGround: true,
-        }
-      )
-    )
-    .then(function (dataSource) {
-      viewer.flyTo(dataSource.entities);
-    });
 
   </script>
 </body>
