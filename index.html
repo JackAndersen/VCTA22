@@ -67,7 +67,7 @@
 
   <form>
   <select id="datalist">
-    <option value="#">Alle</option>
+    <option value="#">Loop cykeldage</option>
     <option value="Data/Garmin/activity_8743979630.gpx">Dag 1</option>
     <option value="Data/Garmin/activity_8752810605.gpx">Dag 2</option>
     <option value="Data/Garmin/activity_8807168553.gpx">Dag 3</option>
@@ -84,18 +84,27 @@
           gpxinput,
           {
             clampToGround: true,
+                trackColor: Cesium.Color.YELLOW,
+                waypointImage: pinBuilder.fromMakiIconId(
+                  "bicycle",
+                  Cesium.Color.BLUE,
+                  48
+                ),
           }
         )
       )
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
-        viewer.clock.clockRange = Cesium.ClockRange.UNBOUNDED;
+        viewer.clock.canAnimate = True;
+        viewer.clock.shouldAnimate = True;
       }
   )});
 
     // Your access token can be found at: https://cesium.com/ion/tokens.
     // This is the default access token from your ion account
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2NmY3OWYxMC1mNTk3LTRkODUtYmU3ZC01NzlmZmVhMTBlNTIiLCJpZCI6MTAwMTA4LCJpYXQiOjE2NTcwMDcwMDV9.ZN5f_sMeDFCv-RU6fk8ZRSfPkPka3JwAlqHAJMQRryw';
+
+    const pinBuilder = new Cesium.PinBuilder();
 
     // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
     const viewer = new Cesium.Viewer('cesiumContainer', {
@@ -112,8 +121,6 @@
     //     pitch : Cesium.Math.toRadians(-15.0),
     //   }
     // });
-
-	const pinBuilder = new Cesium.PinBuilder();
 
   </script>
 </body>
