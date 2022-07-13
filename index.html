@@ -65,42 +65,26 @@
   </style>
   <div id="cesiumContainer" class="fullSize"></div>
 
-  <div class="dropdown">
-      <button onclick="myFunction()" class="dropbtn">Vælg et GPX spor</button>
-      <div id="myDropdown" class="dropdown-content">
-        <a href"Data/Garmin/activity_8743979630.gpx">Dag 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        </div>
-        </div>
+  <form>
+  <select id="datalist">
+    <option value="Data/Garmin/activity_8743979630.gpx">Dag 1</option>
+    <option value="orange">Orange</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="banana">Banana</option>
+  </select>
+  </form>
 
- <script>
-        /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
-        function myFunction() {
-          document.getElementById("myDropdown").classList.toggle("show");
-        }
+  <button id= dropdown type="button" onclick="getgpx()">Try it</button>
 
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-          if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-                gpxinput = dropdowns;
-                loadData();
-              }
-            }
-          }
-        }
+  <p id="demo"></p>
 
-        function loadData(){
-         viewer.entities.removeAll();
-         plotGeoPoints();
-        }
+  <script>
+  function getgpx() {
+    var gpxinput = document.getElementById("datalist").value;
+    document.getElementById("demo").innerHTML = x;
+    viewer.entities.removeAll();
+    plotGeoPoints();
+  }
 
     // Your access token can be found at: https://cesium.com/ion/tokens.
     // This is the default access token from your ion account
