@@ -93,19 +93,15 @@
     
     const scene = viewer.scene;
     const globe = scene.globe;
-    globe.terrainExaggeration = 2.0;
+    globe.terrainExaggeration = 10.0;
   
     scene.camera.setView({
-      destination: new Cesium.Cartesian3(
-        0.0,
-        25.0,
-        1000000
-      ),
-        orientation: {
+    destination : Cesium.Cartesian3.fromDegrees(12.00, 35.00, 20000000.0),
+    orientation: {
         heading : Cesium.Math.toRadians(0.0), // east, default value is 0.0 (north)
         pitch : Cesium.Math.toRadians(-90),    // default value (looking down)
         roll : 0.0                             // default value
-    }
+        }
     })
 
     // Add Cesium OSM Buildings, a global 3D buildings layer.
