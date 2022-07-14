@@ -87,8 +87,8 @@
 
     // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
     const viewer = new Cesium.Viewer('cesiumContainer', {
-      terrainProvider: Cesium.createWorldTerrain(),
-      imageryProvider: new Cesium.IonImageryProvider({ assetId: 3954 })
+      terrainProvider: Cesium.createWorldTerrain()//,
+      //imageryProvider: new Cesium.IonImageryProvider({ assetId: 3954 })
     });
     
     const scene = viewer.scene;
