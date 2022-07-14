@@ -3,7 +3,7 @@
      name: "Bjergtrøjen",
      position: Cesium.Cartesian3.fromDegrees(55.671286, 12.525078),
      billboard: {
-       image: pinBuilder.fromUrl("Data/Img/dotted.png", Cesium.Color.WHITESMOKE, 60),
+       image: pinBuilder.fromUrl("Data/Img/dottedtrans.png", Cesium.Color.WHITESMOKE, 60),
        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
      },
     });
@@ -45,7 +45,7 @@
     });
 
 
-    function addMultipleBillboards() {
+  function addMultipleBillboards() {
   Sandcastle.declare(addMultipleBillboards);
 
   const logoUrl = "../images/Cesium_Logo_overlay.png";
@@ -65,6 +65,7 @@
       ),
     },
   });
+  }
   viewer.entities.add({
     position: Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
     billboard: {
