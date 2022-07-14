@@ -71,11 +71,7 @@
           {
             clampToGround: true,
                 trackColor: Cesium.Color.YELLOW,
-                waypointImage: pinBuilder.fromMakiIconId(
-                  "bicycle",
-                  Cesium.Color.BLUE,
-                  48
-                ),
+                waypointImage: pinBuilder.fromMakiIconId("racetrack-cycling", Cesium.Color.ROYALBLUE, 60),
           }
         )
       )
@@ -91,6 +87,43 @@
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2NmY3OWYxMC1mNTk3LTRkODUtYmU3ZC01NzlmZmVhMTBlNTIiLCJpZCI6MTAwMTA4LCJpYXQiOjE2NTcwMDcwMDV9.ZN5f_sMeDFCv-RU6fk8ZRSfPkPka3JwAlqHAJMQRryw';
 
     const pinBuilder = new Cesium.PinBuilder();
+
+    //Create a red pin representing a hospital from the maki icon set.
+    const polka = viewer.entities.add({
+     name: "Bjergtrøjen",
+     position: Cesium.Cartesian3.fromDegrees(55.671286, 12.525078),
+     billboard: {
+       image: pinBuilder.fromUrl("Data/Img/dotted.png", Cesium.Color.WHITESMOKE, 60),
+       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+     },
+    );
+
+    const arbejde = viewer.entities.add({
+     name: "Arbejde",
+     position: Cesium.Cartesian3.fromDegrees(55.7249690279, 12.37568785646),
+     billboard: {
+       image: pinBuilder.fromUrl("Data/Img/yellow.png", Cesium.Color.WHITESMOKE, 60),
+       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+     },
+    );
+
+    const bager = viewer.entities.add({
+     name: "Morgenbrød",
+     position: Cesium.Cartesian3.fromDegrees(55.7249023075, 12.43884941413),
+     billboard: {
+       image: pinBuilder.fromUrl("Data/Img/green.png", Cesium.Color.WHITESMOKE, 60),
+       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+     },
+    );
+
+    const start = viewer.entities.add({
+     name: "GO!",
+     position: Cesium.Cartesian3.fromDegrees(55.6631154086, 12.53062399967),
+     billboard: {
+       image: pinBuilder.fromUrl("Data/Img/white.png", Cesium.Color.WHITESMOKE, 60),
+       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+     },
+    );
 
     // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
     const viewer = new Cesium.Viewer('cesiumContainer', {
