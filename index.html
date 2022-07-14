@@ -10,108 +10,98 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-<style>
-body {
-display: block;
-margin: 0px;
-}
-  
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-position: absolute;
-display: inline-block;
-top: 10px;
-left: 10px;
+  <style>
+  body {
+      display: block;
+      margin: 0px;
+  }
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+  position: absolute;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  }
 
-/* Dropdown Button */
-.drplist {
-color: #edffff;
-padding: 5px;
-text-decoration: none;
-display: block;
-background-color: #313336;
-border: 2px;
-border-color: #444444;
+  /* Dropdown Button */
+  .drplist {
+  color: #edffff;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  background-color: #313336;
+  border: 2px;
+  border-color: #444444;
+  }
 
-/* Dropdown button on hover & focus */
-.drplist:hover, .drplist:focus {
-/*background-color: #2980B9;*/
-}
-</style>
-  
-<div id="cesiumContainer" class="fullSize"></div
-<div class="dropdown">
-<form class="drpform">
-<select id= "datalist" class="drplist">
-  <option value="#">Vælg en cykeldag</option>
-  <option value="#">Loop cykeldage</option>
-  <option value="Data/Garmin/activity_8743979630.gpx">Dag 1</option>
-  <option value="Data/Garmin/activity_8752810605.gpx">Dag 2</option>
-  <option value="Data/Garmin/activity_8807168553.gpx">Dag 3</option>
-</select>
-</form>
-</div
-<script>
-var formchange = document.querySelector('datalist');
-datalist.addEventListener('change', function() {
-  var gpxinput = document.getElementById("datalist").value;
-  viewer.dataSources
-    .add(
-      Cesium.GpxDataSource.load(
-        gpxinput,
-        {
-          clampToGround: true,
-              trackColor: Cesium.Color.YELLOW,
-              waypointImage: pinBuilder.fromMakiIconId(
-                "bicycle",
-                Cesium.Color.BLUE,
-                48
-              ),
-        }
+  /* Dropdown button on hover & focus */
+  .drplist:hover, .drplist:focus {
+  /*background-color: #2980B9;*/
+  }
+  </style>
+  <div id="cesiumContainer" class="fullSize"></div>
+
+  <div class="dropdown">
+  <form class="drpform">
+  <select id= "datalist" class="drplist">
+    <option value="#">Vælg en cykeldag</option>
+    <option value="#">Loop cykeldage</option>
+    <option value="Data/Garmin/activity_8743979630.gpx">Dag 1</option>
+    <option value="Data/Garmin/activity_8752810605.gpx">Dag 2</option>
+    <option value="Data/Garmin/activity_8807168553.gpx">Dag 3</option>
+  </select>
+  </form>
+  </div>
+
+  <script>
+  var formchange = document.querySelector('datalist');
+  datalist.addEventListener('change', function() {
+    var gpxinput = document.getElementById("datalist").value;
+    viewer.dataSources
+      .add(
+        Cesium.GpxDataSource.load(
+          gpxinput,
+          {
+            clampToGround: true,
+                trackColor: Cesium.Color.YELLOW,
+                waypointImage: pinBuilder.fromMakiIconId(
+                  "bicycle",
+                  Cesium.Color.BLUE,
+                  48
+                ),
+          }
+        )
       )
-    )
-    .then(function (dataSource) {
-      viewer.flyTo(dataSource.entities);
-      viewer.clock.canAnimate = true;
-      viewer.clock.shouldAnimate = true;
-     }
-)})
-  // Your access token can be found at: https://cesium.com/ion/tokens.
-  // This is the default access token from your ion account
-  Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2NmY3OWYxMC1mNTk3LTRkODUtYmU3ZC01NzlmZmVhMTBlNTIiLCJpZCI6MTAwMTA4LCJpYXQiOjE2NTcwMDcwMDV9.ZN5f_sMeDFCv-RU6fk8ZRSfPkPka3JwAlqHAJMQRryw'
-  const pinBuilder = new Cesium.PinBuilder()
-  // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
-  const viewer = new Cesium.Viewer('cesiumContainer', {
-    terrainProvider: Cesium.createWorldTerrain(),
-    imageryProvider: new Cesium.IonImageryProvider({ Sentinel-2}) //assetId: 3954 })
-  });
-  
-  const scene = viewer.scene;
-  const globe = scene.globe;
-  globe.terrainExaggeration = 2.0;
-  
-  scene.camera.setView({
-    destination: new Cesium.Cartesian3(
-      12.492004,
-      55.672641,
-      1
-    ),
-    orientation: new Cesium.HeadingPitchRoll(
-      1.2273281382639265,
-      -0.32239612370237514,
-      0.0027207329018610338
-    ),
-  })
-  // Add Cesium OSM Buildings, a global 3D buildings layer.
-  //const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
-  // Fly the camera to San Francisco at the given longitude, latitude, and height.
-  // viewer.camera.flyTo({
-  //   destination : Cesium.Cartesian3.fromDegrees(12.492004, 55.672641, 400),
-  //   orientation : {
-  //     heading : Cesium.Math.toRadians(0.0),
-  //     pitch : Cesium.Math.toRadians(-15.0),
-  //   }
-  // })
-</script>
+      .then(function (dataSource) {
+        viewer.flyTo(dataSource.entities);
+        viewer.clock.canAnimate = true;
+        viewer.clock.shouldAnimate = true;
+       }
+  )});
+
+    // Your access token can be found at: https://cesium.com/ion/tokens.
+    // This is the default access token from your ion account
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2NmY3OWYxMC1mNTk3LTRkODUtYmU3ZC01NzlmZmVhMTBlNTIiLCJpZCI6MTAwMTA4LCJpYXQiOjE2NTcwMDcwMDV9.ZN5f_sMeDFCv-RU6fk8ZRSfPkPka3JwAlqHAJMQRryw';
+
+    const pinBuilder = new Cesium.PinBuilder();
+
+    // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
+    const viewer = new Cesium.Viewer('cesiumContainer', {
+      terrainProvider: Cesium.createWorldTerrain(),
+      imageryProvider: new Cesium.IonImageryProvider({ assetId: 3954 })
+    });
+
+    // Add Cesium OSM Buildings, a global 3D buildings layer.
+    const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
+    // Fly the camera to San Francisco at the given longitude, latitude, and height.
+    // viewer.camera.flyTo({
+    //   destination : Cesium.Cartesian3.fromDegrees(12.492004, 55.672641, 400),
+    //   orientation : {
+    //     heading : Cesium.Math.toRadians(0.0),
+    //     pitch : Cesium.Math.toRadians(-15.0),
+    //   }
+    // });
+
+  </script>
 </body>
 </html>
