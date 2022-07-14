@@ -123,16 +123,6 @@
     // });
     const pinBuilder = new Cesium.PinBuilder();
 
-    //Create a pin from URL
-    const polka = viewer.entities.add({
-     name: "Bjergtrøjen",
-     position: Cesium.Cartesian3.fromDegrees(12.525078, 55.671286),
-     billboard: {
-       image: pinBuilder.fromUrl("Data/Img/dottedtrans.png", Cesium.Color.WHITESMOKE, 60),
-       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-     },
-    });
-
     function addbillboards() {
     viewer.entities.add({
       position: Cesium.Cartesian3.fromDegrees(12.525078, 55.6715),
@@ -141,7 +131,6 @@
         show: true, // default
         width: 60, // default: undefined
         height: 60, // default: undefined
-        scaleByDistance: new Cesium.NearFarScalar(1.5e2, 2.0, 1.5e7, 0.5),
         heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
         },
       });
