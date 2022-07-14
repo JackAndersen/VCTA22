@@ -74,7 +74,8 @@
       )
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
-        Cesium.ToggleButtonViewModel(playForwardViewModel, True)
+        viewer.clock.canAnimate = true;
+        viewer.clock.shouldAnimate = true;
       }
   )});
 
