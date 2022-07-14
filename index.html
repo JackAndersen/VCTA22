@@ -83,6 +83,7 @@
         viewer.flyTo(dataSource.entities);
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
+        addbillboards();
        }
   )});
 
@@ -98,6 +99,7 @@
     
     const scene = viewer.scene;
     const globe = scene.globe;
+    
     globe.terrainExaggeration = 4.0;
   
     scene.camera.setView({
@@ -130,6 +132,19 @@
        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
      },
     });
+
+    function addbillboards() {
+    viewer.entities.add({
+      position: Cesium.Cartesian3.fromDegrees(12.525078, 55.6715),
+      billboard: {
+        image: "https://wisecloud.dk/vcta22/Data/Img/dottedtrans.png", // default: undefined
+        show: true, // default
+        width: 60, // default: undefined
+        height: 60, // default: undefined
+        scaleByDistance: new Cesium.NearFarScalar(1.5e2, 2.0, 1.5e7, 0.5),
+        },
+      });
+    }
 
   </script>
 </body>
