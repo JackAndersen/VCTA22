@@ -54,10 +54,6 @@
   </div>
 
   <script>
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-    
   var formchange = document.querySelector('datalist');
   datalist.addEventListener('change', function() {
     var gpxinput = document.getElementById("datalist").value;
@@ -78,7 +74,6 @@
       )
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
-        await sleep(i * 1000);
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
        }
