@@ -54,6 +54,14 @@
   </div>
 
   <script>
+  function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+  }
+
   var formchange = document.querySelector('datalist');
   datalist.addEventListener('change', function() {
     var gpxinput = document.getElementById("datalist").value;
@@ -74,7 +82,9 @@
       )
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
-        setTimeout(() => { viewer.clock.canAnimate = true; viewer.clock.shouldAnimate = true;}, 1500);
+        sleep(1500);
+        viewer.clock.canAnimate = true;
+        viewer.clock.shouldAnimate = true;
       }
   )});
 
