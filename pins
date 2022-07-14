@@ -142,3 +142,26 @@ function sizeBillboardInMeters() {
 
   viewer.zoomTo(entity);
 }
+
+
+    function addMultipleBillboards() {
+    Sandcastle.declare(addMultipleBillboards);
+  
+    const logoUrl = "../images/Cesium_Logo_overlay.png";
+    const facilityUrl = "https://wisecloud.dk/vcta22/Data/Img/yellow.png";
+  
+    viewer.entities.add({
+      position: Cesium.Cartesian3.fromDegrees(12.525078, 55.671286),
+      billboard: {
+        image: "https://wisecloud.dk/vcta22/Data/Img/dottedtrans.png",
+        scaleByDistance: new Cesium.NearFarScalar(1.5e2, 2.0, 1.5e7, 1),
+        imageSubRegion: new Cesium.BoundingRectangle(105, 105, 18, 18),
+        translucencyByDistance: new Cesium.NearFarScalar(
+          1.5e2,
+          2.0,
+          1.5e7,
+          0.5
+        ),
+      },
+    }
+    };
