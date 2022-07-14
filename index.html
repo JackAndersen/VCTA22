@@ -54,14 +54,10 @@
   </div>
 
   <script>
-  function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
-
+    
   var formchange = document.querySelector('datalist');
   datalist.addEventListener('change', function() {
     var gpxinput = document.getElementById("datalist").value;
@@ -82,10 +78,10 @@
       )
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
-        sleep(1500);
+        await sleep(i * 1000);
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
-      }
+       }
   )});
 
     // Your access token can be found at: https://cesium.com/ion/tokens.
@@ -96,7 +92,8 @@
 
     // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
     const viewer = new Cesium.Viewer('cesiumContainer', {
-      terrainProvider: Cesium.createWorldTerrain()
+      terrainProvider: Cesium.createWorldTerrain(),
+      imageryProvider: new Cesium.IonImageryProvider({ assetId: 3954 })
     });
 
     // Add Cesium OSM Buildings, a global 3D buildings layer.
