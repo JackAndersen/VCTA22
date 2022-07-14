@@ -69,12 +69,16 @@
         Cesium.GpxDataSource.load(
           gpxinput,
           {
-            clampToGround: true,
+                clampToGround: true,
                 trackColor: Cesium.Color.YELLOW,
-                waypointImage: pinBuilder.fromMakiIconId("cycling", Cesium.Color.ROYALBLUE, 60),
-          }
-        )
-      )
+                waypointImage: pinBuilder.fromMakiIconId(
+                  "bicycle",
+                  Cesium.Color.BLUE,
+                  60
+                ),
+              }
+            )
+          )
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
         viewer.clock.canAnimate = true;

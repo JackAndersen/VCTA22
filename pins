@@ -1,3 +1,22 @@
+  godt tilføj function, og billboards, kald den når du åbner gpx
+  tilføj flere viewer.entities.add for flere...
+
+  function setBillboardProperties() {
+  Sandcastle.declare(setBillboardProperties);
+
+  viewer.entities.add({
+    position: Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
+    billboard: {
+      image: "https://wisecloud.dk/vcta22/Data/Img/dottedtrans.png", // default: undefined
+      show: true, // default
+      width: 60, // default: undefined
+      height: 60, // default: undefined
+      scaleByDistance: new Cesium.NearFarScalar(1.5e2, 2.0, 1.5e7, 0.5),
+    },
+  });
+}
+
+
     //Create a pin from URL
     const polka = viewer.entities.add({
      name: "Bjergtrøjen",
@@ -43,125 +62,3 @@
        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
      },
     });
-
-
-  function addMultipleBillboards() {
-  Sandcastle.declare(addMultipleBillboards);
-
-  const logoUrl = "../images/Cesium_Logo_overlay.png";
-  const facilityUrl = "https://wisecloud.dk/vcta22/Data/Img/yellow.png";
-
-  viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
-    billboard: {
-      image: "https://wisecloud.dk/vcta22/Data/Img/dottedtrans.png",
-      scaleByDistance: new Cesium.NearFarScalar(1.5e2, 2.0, 1.5e7, 1),
-      imageSubRegion: new Cesium.BoundingRectangle(105, 105, 18, 18),
-      translucencyByDistance: new Cesium.NearFarScalar(
-        1.5e2,
-        2.0,
-        1.5e7,
-        0.5
-      ),
-    },
-  });
-  }
-  viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
-    billboard: {
-      image: logoUrl,
-    },
-  });
-  viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(-80.5, 35.14),
-    billboard: {
-      image: facilityUrl,
-    },
-  });
-  viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(-80.12, 25.46),
-    billboard: {
-      image: facilityUrl,
-      scaleByDistance: new Cesium.NearFarScalar(1.5e2, 2.0, 1.5e7, 0.5),
-    },
-  });
-}
-
-
-function setBillboardProperties() {
-  Sandcastle.declare(setBillboardProperties);
-
-  viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
-    billboard: {
-      image: "../images/Cesium_Logo_overlay.png", // default: undefined
-      show: true, // default
-      pixelOffset: new Cesium.Cartesian2(0, -50), // default: (0, 0)
-      eyeOffset: new Cesium.Cartesian3(0.0, 0.0, 0.0), // default
-      horizontalOrigin: Cesium.HorizontalOrigin.CENTER, // default
-      verticalOrigin: Cesium.VerticalOrigin.BOTTOM, // default: CENTER
-      scale: 2.0, // default: 1.0
-      color: Cesium.Color.LIME, // default: WHITE
-      rotation: Cesium.Math.PI_OVER_FOUR, // default: 0.0
-      alignedAxis: Cesium.Cartesian3.ZERO, // default
-      width: 100, // default: undefined
-      height: 25, // default: undefined
-    },
-  });
-}
-
-function changeBillboardProperties() {
-  Sandcastle.declare(changeBillboardProperties);
-
-  const entity = viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(
-      -75.59777,
-      40.03883,
-      300000.0
-    ),
-    billboard: {
-      image: "../images/Cesium_Logo_overlay.png",
-    },
-  });
-
-  const billboard = entity.billboard;
-  billboard.scale = 3.0;
-  billboard.color = Cesium.Color.WHITE.withAlpha(0.25);
-}
-
-function sizeBillboardInMeters() {
-  Sandcastle.declare(sizeBillboardInMeters);
-
-  const entity = viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
-    billboard: {
-      image: "https//wisecloud.dk/vcta22/Data/Img/jerseys.png",
-      sizeInMeters: true,
-    },
-  });
-
-  viewer.zoomTo(entity);
-}
-
-
-    function addMultipleBillboards() {
-    Sandcastle.declare(addMultipleBillboards);
-  
-    const logoUrl = "../images/Cesium_Logo_overlay.png";
-    const facilityUrl = "https://wisecloud.dk/vcta22/Data/Img/yellow.png";
-  
-    viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(12.525078, 55.671286),
-      billboard: {
-        image: "https://wisecloud.dk/vcta22/Data/Img/dottedtrans.png",
-        scaleByDistance: new Cesium.NearFarScalar(1.5e2, 2.0, 1.5e7, 1),
-        imageSubRegion: new Cesium.BoundingRectangle(105, 105, 18, 18),
-        translucencyByDistance: new Cesium.NearFarScalar(
-          1.5e2,
-          2.0,
-          1.5e7,
-          0.5
-        ),
-      },
-    }
-    };
