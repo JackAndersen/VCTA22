@@ -74,7 +74,7 @@
       )
       .then(function (dataSource) {
         viewer.flyTo(dataSource.entities);
-        viewer.clock.canAnimate = true;
+        setTimeout(() => { viewer.clock.canAnimate = true; }, 1500);
         viewer.clock.shouldAnimate = true;
       }
   )});
