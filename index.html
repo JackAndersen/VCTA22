@@ -96,7 +96,7 @@
        image: pinBuilder.fromUrl("Data/Img/dotted.png", Cesium.Color.WHITESMOKE, 60),
        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
      },
-    );
+    });
 
     const arbejde = viewer.entities.add({
      name: "Arbejde",
@@ -105,7 +105,7 @@
        image: pinBuilder.fromUrl("Data/Img/yellow.png", Cesium.Color.WHITESMOKE, 60),
        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
      },
-    );
+    });
 
     const bager = viewer.entities.add({
      name: "Morgenbrød",
@@ -114,16 +114,16 @@
        image: pinBuilder.fromUrl("Data/Img/green.png", Cesium.Color.WHITESMOKE, 60),
        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
      },
-    );
+    });
 
     const start = viewer.entities.add({
      name: "GO!",
      position: Cesium.Cartesian3.fromDegrees(55.6631154086, 12.53062399967),
      billboard: {
-       image: pinBuilder.fromUrl("Data/Img/white.png", Cesium.Color.WHITESMOKE, 60),
+       image: pinBuilder.fromUrl("Data/Img/white.png", Cesium.Color.ROYALBLUE, 60),
        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
      },
-    );
+    });
 
     // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
     const viewer = new Cesium.Viewer('cesiumContainer', {
