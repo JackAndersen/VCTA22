@@ -90,9 +90,26 @@
       terrainProvider: Cesium.createWorldTerrain(),
       imageryProvider: new Cesium.IonImageryProvider({ assetId: 3954 })
     });
+    
+    const scene = viewer.scene;
+    const globe = scene.globe;
+    globe.terrainExaggeration = 2.0;
+  
+    scene.camera.setView({
+      destination: new Cesium.Cartesian3(
+        12.492004,
+        55.672641,
+        1
+      ),
+      orientation: new Cesium.HeadingPitchRoll(
+        1.2273281382639265,
+        -0.32239612370237514,
+        0.0027207329018610338
+      ),
+    })
 
     // Add Cesium OSM Buildings, a global 3D buildings layer.
-    const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
+    //const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
     // Fly the camera to San Francisco at the given longitude, latitude, and height.
     // viewer.camera.flyTo({
     //   destination : Cesium.Cartesian3.fromDegrees(12.492004, 55.672641, 400),
