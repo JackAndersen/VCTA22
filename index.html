@@ -125,13 +125,12 @@
 
     function addbillboards() {
     viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(12.525078, 55.6715),
+      position: Cesium.Cartesian3.fromDegrees(12.5250780, 55.671500),
       billboard: {
         image: "https://wisecloud.dk/vcta22/Data/Img/dottedtrans.png", // default: undefined
         show: true, // default
         width: 60, // default: undefined
         height: 60, // default: undefined
-        verticalOrigin = Cesium.VerticalOrigin.BOTTOM,
         heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
         translucencyByDistance : new Cesium.NearFarScalar(1.5e2, 1.0, 8.0e3, 0.0),
         },
