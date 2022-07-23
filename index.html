@@ -132,6 +132,39 @@
         width: 60, // default: undefined
         height: 60, // default: undefined
         heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+        translucencyByDistance : new Cesium.NearFarScalar(1.5e2, 1.0, 8.0e4, 0.0),
+        },
+      });
+        viewer.entities.add({
+      position: Cesium.Cartesian3.fromDegrees(12.375687, 55.725080),
+      billboard: {
+        image: "https://wisecloud.dk/vcta22/Data/Img/yellowtrans.png", // default: undefined
+        show: true, // default
+        width: 60, // default: undefined
+        height: 60, // default: undefined
+        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+        translucencyByDistance : new Cesium.NearFarScalar(1.5e2, 1.0, 8.0e3, 0.0),
+        },
+      });
+    viewer.entities.add({
+      position: Cesium.Cartesian3.fromDegrees(12.535907, 55.656714),
+      billboard: {
+        image: "https://wisecloud.dk/vcta22/Data/Img/whitetrans.png", // default: undefined
+        show: true, // default
+        width: 60, // default: undefined
+        height: 60, // default: undefined
+        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+        translucencyByDistance : new Cesium.NearFarScalar(1.5e2, 1.0, 8.0e3, 0.0),
+        },
+      });
+    viewer.entities.add({
+      position: Cesium.Cartesian3.fromDegrees(12.438817, 55.724872),
+      billboard: {
+        image: "https://wisecloud.dk/vcta22/Data/Img/greentrans.png", // default: undefined
+        show: true, // default
+        width: 60, // default: undefined
+        height: 60, // default: undefined
+        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
         translucencyByDistance : new Cesium.NearFarScalar(1.5e2, 1.0, 8.0e3, 0.0),
         },
       });
