@@ -44,6 +44,27 @@
   border-color: #aef;
   box-shadow: 0 0 8px #fff;
   }
+
+    .infoknap {
+  color: #edffff;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  background-color: #313336;
+  border: 2px;
+  border-color: #444444;
+  border-radius: 3px;
+  }
+
+  /* Dropdown button on hover & focus */
+  .infoknap:hover {
+  cursor: pointer;
+  color: #fff;
+  fill: #fff;
+  /*background: #48b;*/
+  border-color: #aef;
+  box-shadow: 0 0 8px #fff;
+  }
   
   </style>
   <div id="cesiumContainer" class="fullSize"></div>
@@ -51,7 +72,7 @@
   <div class="dropdown">
   <form class="drpform">
   <select id= "datalist" class="drplist">
-    <option value="#">Vælg en cykeldag 🚴</option>
+    <option value="#">Vælg en cykeldag    🚵</option>
     <option value="Data/Garmin/combined.gpx">Loop alle cykeldage</option>
     <option value="Data/Garmin/20220502.gpx">Dag 1  20220502 30,3km</option>
     <option value="Data/Garmin/20220503.gpx">Dag 2  20220503 30,1km</option>
@@ -71,6 +92,26 @@
     <option value="Data/Garmin/20220530.gpx">Dag 16 20220530 15,3km</option>
   </select>
   </form>
+
+  </div>
+  <!-- Trigger/Open The Modal -->
+  <button onclick="infoboks()" id="myBtn" class"infoknap">ℹ️</button>
+    <!-- The Modal -->
+  <div id="myModal" class="modal">
+  
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 style="text-align: center;">Vi Cykler til Arbejde 2022</h2>
+      <ul style="list-style-type: circle;">
+      <li style="text-align: left;">Gennemsnitshastigheden igennem hele Maj blev 22,2 km/t inkl. lyskryds, standsninger osv.</li>
+      <li style="text-align: left;">Gennemsnitshastigheden tur/retur for den hurtigste enkelte dag var 23,4 km/t<br />Gennemsnintshastigheden for enkelt vej var 25,6 km/t d. 5 maj hjemturen</li>
+      <li style="text-align: left;">Generelt var det hurtigere hjem da der oftere var svag medvind i den retning og jeg slap for at k&aelig;mpe imod den.</li>
+      </ul>
+      <p style="text-align: center;"><em>M&aring;nedens kilometer blev tilbagelagt p&aring; min gamle jernhest</em></p>
+      <p><img src="https://wisecloud.dk/vcta22/Data/Img/cykel.png" alt="" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+    </div>ß
+  
   </div>
 
   <script>
@@ -99,6 +140,32 @@
         addbillboards();
        }
   )});
+  
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
     // Your access token can be found at: https://cesium.com/ion/tokens.
     // This is the default access token from your ion account
