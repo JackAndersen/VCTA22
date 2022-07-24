@@ -250,7 +250,7 @@
 
     function addbillboards() {
     viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(12.5250780, 55.671500),
+      position: Cesium.Cartesian3.fromDegrees(12.5250780, 55.671200),
       billboard: {
         image: "https://wisecloud.dk/vcta22/Data/Img/dottedtrans.png", // default: undefined
         show: true, // default
@@ -262,35 +262,38 @@
         },
       });
         viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(12.375687, 55.725080),
+      position: Cesium.Cartesian3.fromDegrees(12.375687, 55.724680),
       billboard: {
         image: "https://wisecloud.dk/vcta22/Data/Img/yellowtrans.png", // default: undefined
         show: true, // default
         width: 60, // default: undefined
         height: 60, // default: undefined
         heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
         translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
         },
       });
     viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(12.535907, 55.656714),
+      position: Cesium.Cartesian3.fromDegrees(12.535907, 55.656314),
       billboard: {
         image: "https://wisecloud.dk/vcta22/Data/Img/whitetrans.png", // default: undefined
         show: true, // default
         width: 60, // default: undefined
         height: 60, // default: undefined
         heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
         translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
         },
       });
     viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(12.438817, 55.724872),
+      position: Cesium.Cartesian3.fromDegrees(12.438817, 55.724472),
       billboard: {
         image: "https://wisecloud.dk/vcta22/Data/Img/greentrans.png", // default: undefined
         show: true, // default
         width: 60, // default: undefined
         height: 60, // default: undefined
         heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
         translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
         },
       });
