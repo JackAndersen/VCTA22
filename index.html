@@ -236,6 +236,11 @@
         }
     });
 
+    viewer.animation.viewModel.timeFormatter = function(date, viewModel) {
+      date = Cesium.JulianDate.toDate(date);
+      return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    };
+
     // Add Cesium OSM Buildings, a global 3D buildings layer.
     //const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
     // Fly the camera to San Francisco at the given longitude, latitude, and height.
