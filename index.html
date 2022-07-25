@@ -47,7 +47,7 @@
   box-shadow: 0 0 8px #fff;
   }
 
-  #Infoknap {
+  #infoknap {
   color: #edffff;
   padding: 5px;
   text-decoration: none;
@@ -62,7 +62,31 @@
   }
 
   /* Dropdown button on hover & focus */
-  #Infoknap:hover {
+  #infoknap:hover {
+  cursor: pointer;
+  color: #fff;
+  fill: #fff;
+  /*background: #48b;*/
+  border-color: #aef;
+  box-shadow: 0 0 8px #fff;
+  }
+
+  #Wisecloudknap {
+  color: #edffff;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  background-color: #313336;
+  border: 2px;
+  border-color: #444444;
+  border-radius: 3px;
+  position: absolute;
+  top: 10px;
+  left: 230px;
+  }
+
+  /* Dropdown button on hover & focus */
+  #Wisecloudknap:hover {
   cursor: pointer;
   color: #fff;
   fill: #fff;
@@ -139,23 +163,29 @@
 
   </div>
   <!-- Trigger/Open The Modal -->
-  <button onclick="infoboks()" id="Infoknap" class="fa fa-info fa-lg" aria-hidden="true"></button>
-    <!-- The Modal -->
+  <button onclick="infoboks()" id="infoknap" class="fa fa-info fa-lg" aria-hidden="true"></button>
+
+  <!-- Wisecloud knap -->
+  <button onclick="location.href='https://wisecloud.dk';" value="Go to Wisecloud.dk" id="Wisecloudknap" class="fa fa-info fa-lg" aria-hidden="true"/>
+    <img src="favicon.ico" aria-hidden="true">
+  </button>
+
+  <!-- The Modal -->
   <div id="myModal" class="modal">
-  
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 style="text-align: center;">Vi Cykler til Arbejde 2022</h2>
-      <ul style="list-style-type: circle;">
-      <li style="text-align: left;">Gennemsnitshastigheden igennem hele Maj blev 22,2 km/t inkl. lyskryds og standsninger</li>
-      <li style="text-align: left;">Højeste gennemsnitshastighed tur/retur for en enkelt dag var 23,4 km/t</li>
-      <li style="text-align: left;">Højeste gennemsnitshastighed for en enkelt vej var 25,6 km/t d. 5 maj på hjemturen</li>
-      <li style="text-align: left;">Generelt var det hurtigere hjem da der oftere var svag medvind i den retning</li>
-      </ul>
-      <p style="text-align: center;"><em>M&aring;nedens kilometer blev tilbagelagt p&aring; min gamle jernhest som fik nyt kranksæt og styr inden start</em></p>
-      <p><img src="Data/Img/cykelorg.png" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 35%; border-radius: 15px;" /></p>
-    </div>ß
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 style="text-align: center;">Vi Cykler til Arbejde 2022</h2>
+    <ul style="list-style-type: circle;">
+    <li style="text-align: left;">Gennemsnitshastigheden igennem hele Maj blev 22,2 km/t inkl. lyskryds og standsninger</li>
+    <li style="text-align: left;">Højeste gennemsnitshastighed tur/retur for en enkelt dag var 23,4 km/t</li>
+    <li style="text-align: left;">Højeste gennemsnitshastighed for en enkelt vej var 25,6 km/t d. 5 maj på hjemturen</li>
+    <li style="text-align: left;">Generelt var det hurtigere hjem da der oftere var svag medvind i den retning</li>
+    </ul>
+    <p style="text-align: center;"><em>M&aring;nedens kilometer blev tilbagelagt p&aring; min gamle jernhest som fik nyt kranksæt og styr inden start</em></p>
+    <p><img src="Data/Img/cykelorg.png" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 35%; border-radius: 15px;" /></p>
+  </div>
   
   </div>
 
@@ -190,7 +220,7 @@
   var modal = document.getElementById("myModal");
   
   // Get the button that opens the modal
-  var btn = document.getElementById("Infoknap");
+  var btn = document.getElementById("infoknap");
   
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
