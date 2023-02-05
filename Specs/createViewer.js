@@ -1,6 +1,7 @@
-import { defaultValue } from "../Source/Cesium.js";
+import { defaultValue } from "@cesium/engine";
+import { Viewer } from "@cesium/widgets";
+
 import getWebGLStub from "./getWebGLStub.js";
-import { Viewer } from "../Source/Cesium.js";
 
 function createViewer(container, options) {
   options = defaultValue(options, {});

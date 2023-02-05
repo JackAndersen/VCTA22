@@ -1,17 +1,19 @@
+import {
+  Cartesian2,
+  defaultValue,
+  defined,
+  DeveloperError,
+  FeatureDetection,
+  PrimitiveType,
+  Buffer,
+  BufferUsage,
+  ClearCommand,
+  DrawCommand,
+  ShaderProgram,
+  VertexArray,
+  Math as CesiumMath,
+} from "@cesium/engine";
 import equals from "./equals.js";
-import { Cartesian2 } from "../Source/Cesium.js";
-import { defaultValue } from "../Source/Cesium.js";
-import { defined } from "../Source/Cesium.js";
-import { DeveloperError } from "../Source/Cesium.js";
-import { FeatureDetection } from "../Source/Cesium.js";
-import { Math as CesiumMath } from "../Source/Cesium.js";
-import { PrimitiveType } from "../Source/Cesium.js";
-import { Buffer } from "../Source/Cesium.js";
-import { BufferUsage } from "../Source/Cesium.js";
-import { ClearCommand } from "../Source/Cesium.js";
-import { DrawCommand } from "../Source/Cesium.js";
-import { ShaderProgram } from "../Source/Cesium.js";
-import { VertexArray } from "../Source/Cesium.js";
 
 function createMissingFunctionMessageFunction(
   item,
@@ -804,7 +806,7 @@ function contextRenderAndReadPixels(options) {
   if (!defined(sp)) {
     if (!defined(vs)) {
       vs =
-        "attribute vec4 position; void main() { gl_PointSize = 1.0; gl_Position = position; }";
+        "in vec4 position; void main() { gl_PointSize = 1.0; gl_Position = position; }";
     }
     sp = ShaderProgram.fromCache({
       context: context,
