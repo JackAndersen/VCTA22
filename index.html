@@ -273,6 +273,7 @@
         roll : 0.0                             // default value
         }
     });
+    
     viewer.useBrowserRecommendedResolution = false;
 
     viewer.animation.viewModel.timeFormatter = function(date, viewModel) {
@@ -305,7 +306,7 @@
         translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
         },
       });
-        viewer.entities.add({
+    viewer.entities.add({
       position: Cesium.Cartesian3.fromDegrees(12.375687, 55.724680),
       billboard: {
         image: "https://wisecloud.dk/vcta22/Data/Img/yellowtrans.png", // default: undefined
