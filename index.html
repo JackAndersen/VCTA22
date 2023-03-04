@@ -13,11 +13,6 @@
 </head>
 <body>
   <style>
-  body {
-      display: block;
-      margin: 0px;
-  }
- 
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
   position: absolute;
@@ -260,7 +255,17 @@
       // imageryProvider : new Cesium.IonImageryProvider({ assetId: 3954 }) //sentinel
     });
     
+	viewer.useBrowserRecommendedResolution = false;
+    
+    viewer.resolutionScale = window.devicePixelRatio;
+
+    viewer.animation.viewModel.timeFormatter = function(date, viewModel) {
+      date = Cesium.JulianDate.toDate(date);
+      return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    };
+
     const scene = viewer.scene;
+    
     const globe = scene.globe;
     
     globe.terrainExaggeration = 3.0;
@@ -274,17 +279,6 @@
         }
     });
     
-    viewer.useBrowserRecommendedResolution = false;
-    
-    if(Cesium.FeatureDetection.supportsImageRenderingPixelated()){
-        viewer.resolutionScale = window.devicePixelRatio;
-    }
-
-    viewer.animation.viewModel.timeFormatter = function(date, viewModel) {
-      date = Cesium.JulianDate.toDate(date);
-      return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-    };
-
     // Add Cesium OSM Buildings, a global 3D buildings layer.
     //const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
     // Fly the camera to San Francisco at the given longitude, latitude, and height.
